@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(-1221));
+        System.out.println(isPalindrome(707));
+        System.out.println(isPalindrome(11212));
+    }
+
+    public static boolean isPalindrome(int number){
+        int initalNum = number;
+        int reverse = 0;
+        int lastDigit;
+        while(number != 0){
+            lastDigit = number % 10;
+            reverse = reverse * 10;
+            reverse = reverse + lastDigit;
+            number /= 10;
+        }
+
+        if(initalNum == reverse){
+            return true;
+        }
+        return false;
+    }
+}
