@@ -1,0 +1,56 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(sumFirstAndLastDigit(252));
+        System.out.println(sumFirstAndLastDigit(257));
+        System.out.println(sumFirstAndLastDigit(0));
+        System.out.println(sumFirstAndLastDigit(5));
+        System.out.println(sumFirstAndLastDigit(-10));
+    }
+
+//    public static int sumFirstAndLastDigit(int number){
+//        if(number < 0){
+//            return -1;
+//        }
+//
+//
+//        int lastDigit = 0;
+//        if(number > 0){
+//            lastDigit = number % 10;
+//            number /= 10;
+//        }
+//
+//        int first = 0;
+//        while(number > 0){
+//            first= number % 10;
+//            number /= 10;
+//        }
+//        if(first == 0){
+//            first = lastDigit;
+//        }
+//
+//        return first + lastDigit;
+//    }
+    // another solution
+
+    public static int sumFirstAndLastDigit(int number) {
+        int sum = 0;
+        int first = 0;
+        if(number < 0){
+            return -1;
+        }
+        if(number < 10){
+            sum = number + number;
+            return sum;
+        }
+
+        int lastDigit = number % 10;
+        number /= 10;
+
+        while(number > 0){
+            first = number % 10;
+            number /= 10;
+        }
+        sum = first + lastDigit;
+        return sum;
+    }
+}
