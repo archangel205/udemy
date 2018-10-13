@@ -32,6 +32,8 @@ public class FlourPacker {
             }
         }
         // continue working here
+       // can try while(smallcount!=goal)
+      // smallcount -=1 or 
         else if((bigCount == 0) && (smallCount > goal)){
             int sum = 0;
             while(smallCount > 0){
