@@ -1,1 +1,48 @@
+public class FlourPacker {
 
+    public static void main(String[] args) {
+//        System.out.println((canPack(1, 0, 4)));
+//        System.out.println((canPack(1, 0, 5)));
+        System.out.println((canPack(0, 5, 4)));
+
+
+    }
+
+    public static boolean canPack(int bigCount, int smallCount, int goal){
+        System.out.println("first: " + bigCount);
+        System.out.println("first: " + smallCount);
+        System.out.println("first: " + goal);
+
+        if((bigCount < 0) || (smallCount < 0) || (goal < 0)){
+            return false;
+        }
+
+        bigCount *= 5;
+        smallCount *= 1;
+        System.out.println("Second: "+ bigCount);
+        System.out.println("Second: " + smallCount);
+
+        if((bigCount + smallCount) == goal){
+            return true;
+        }
+        else if((bigCount + smallCount) > goal){
+            int sum = bigCount + (smallCount / 5);
+            if(sum == goal) {
+                return true;
+            }
+        }
+        // continue working here
+        else if((bigCount == 0) && (smallCount > goal)){
+            int sum = 0;
+            while(smallCount > 0){
+                smallCount %= 5;
+                sum += 1;
+            }
+            if(sum == goal){
+                return true;
+                }
+            }
+            return false;
+    }
+
+}
