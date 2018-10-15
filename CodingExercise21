@@ -72,26 +72,27 @@ public class FlourPacker {
 public class FlourPacker {
 
     public static void main(String[] args) {
-        canPack(1, 0, 4);
-        canPack(1, 0, 5);
-        canPack(0, 5, 4);
-        canPack(2, 2, 12);
-        canPack(-3, 2, 12);
+//        System.out.println(canPack(1, 0, 4));
+//        System.out.println(canPack(1, 0, 5));
+//        System.out.println(canPack(0, 5, 4));
+//        System.out.println(canPack(2, 2, 12));
+//        System.out.println(canPack(-3, 2, 12));
+        System.out.println(canPack(1,1,5));
 
     }
 
-    public static void canPack(int bigCount, int smallCount, int goal){
+    public static boolean canPack(int bigCount, int smallCount, int goal){
         bigCount *= 5;
         smallCount *= 1;
 
         if((bigCount < 0) || (smallCount < 0) || (goal < 0)){
-            System.out.println("false");
+            return false;
         }
         else if((bigCount + smallCount) == goal){
-            System.out.println("true");
+            return true;
         }
         else if ((bigCount > 0) && (smallCount == 0)) {
-            System.out.println("false");
+            return false;
         }
         else if ((bigCount == 0) && (smallCount > goal)) {
             int sum = 0;
@@ -99,17 +100,17 @@ public class FlourPacker {
                 smallCount -= 1;
                 sum += 1;
                 if (sum == goal) {
-                    System.out.println("true");
+                    return true;
                 }
             }
         }
         else if((bigCount + smallCount) > goal){
             int sum = bigCount + (smallCount / 5);
             if(sum == goal) {
-                System.out.println("true");
+                return true;
             }
         }
-           else System.out.println("false");
+           return false;
     }
 }
 
