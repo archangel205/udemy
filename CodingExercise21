@@ -72,12 +72,12 @@ public class FlourPacker {
 public class FlourPacker {
 
     public static void main(String[] args) {
-        // not working
-        canPack(1, 0, 4);
+        // works
+//        canPack(1, 0, 4);
         // works
 //        canPack(1, 0, 5);
         // not working
-//        canPack(0, 5, 4);
+        canPack(0, 5, 4);
         // works
 //        canPack(2, 2, 12);
         // works
@@ -98,14 +98,14 @@ public class FlourPacker {
         else if((bigCount + smallCount) == goal){
             System.out.println("true");
         }
+        else if ((bigCount > 0) && (smallCount == 0)) {
+            System.out.println("false");
+        }
         else if((bigCount + smallCount) > goal){
             int sum = bigCount + (smallCount / 5);
             if(sum == goal) {
                 System.out.println("true");
             }
-        }
-        else if ((bigCount > 0) && (smallCount == 0)) {
-                    System.out.println("false");
         }
          else if ((bigCount == 0) && (smallCount > goal)) {
             int sum = 0;
