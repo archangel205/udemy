@@ -1,50 +1,60 @@
 public class FlourPacker {
 
     public static void main(String[] args) {
-//        System.out.println((canPack(1, 0, 4)));
-//        System.out.println((canPack(1, 0, 5)));
-        System.out.println((canPack(0, 5, 4)));
-
+        System.out.println(canPack(1, 0, 4));
+        System.out.println(canPack(1, 0, 5));
+        System.out.println(canPack(0, 5, 4));
+        System.out.println(canPack(2, 2, 12));
+        System.out.println(canPack(-3, 2, 12));
+        System.out.println(canPack(2,1,5));
 
     }
 
     public static boolean canPack(int bigCount, int smallCount, int goal){
-        System.out.println("first: " + bigCount);
-        System.out.println("first: " + smallCount);
-        System.out.println("first: " + goal);
+        bigCount *= 5;
+        smallCount *= 1;
 
         if((bigCount < 0) || (smallCount < 0) || (goal < 0)){
             return false;
         }
-
-        bigCount *= 5;
-        smallCount *= 1;
-        System.out.println("Second: "+ bigCount);
-        System.out.println("Second: " + smallCount);
-
-        if((bigCount + smallCount) == goal){
+        else if((bigCount + smallCount) == goal){
             return true;
         }
-        else if((bigCount + smallCount) > goal){
-            int sum = bigCount + (smallCount / 5);
-            if(sum == goal) {
-                return true;
-            }
+        else if ((bigCount > 0) && (smallCount == 0)) {
+            return false;
         }
-        // continue working here
-       // can try while(smallcount!=goal)
-      // smallcount -=1 or 
-        else if((bigCount == 0) && (smallCount > goal)){
+        else if ((bigCount == 0) && (smallCount > goal)) {
             int sum = 0;
-            while(smallCount > 0){
-                smallCount %= 5;
+            while (smallCount != 0) {
+                smallCount -= 1;
                 sum += 1;
-            }
-            if(sum == goal){
-                return true;
+                if (sum == goal) {
+                    return true;
                 }
             }
-            return false;
-    }
+        }
+//        else if((bigCount + smallCount) > goal){
+//            int sum = 0;
+//            sum = bigCount + (smallCount / 5);
+//            if(sum == goal) {
+//                return true;
+//            }
+            else if((bigCount + smallCount) > goal){
+                     int sum = 0;
+                    while (sum != goal){
+                         sum = (bigCount - 5) + smallCount;
+                        if (sum == goal) {
+                            return true;
+                        }
+                        smallCount = (smallCount -1);
+                        sum -= smallCount;
+                            if(sum == goal){
+                                return true;
+                            }
+                    }
+            }
 
+//    }
+           return false;
+    }
 }
