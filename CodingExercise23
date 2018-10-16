@@ -50,3 +50,33 @@ public class FlourPacker {
            return false;
     }
 }
+
+// altered code states takes to long to execute
+
+    public static boolean canPack(int bigCount, int smallCount, int goal){
+        bigCount *= 5;
+        smallCount *= 1;
+        int sum = 0;
+        
+        if ((bigCount < 0) || (smallCount < 0) || (goal < 0)){
+            return false;
+        }
+        
+        while(sum != goal){
+            sum = bigCount + smallCount;
+            if(sum == goal){
+                return true;
+            }
+            sum = (bigCount - 5) + smallCount;
+                        if (sum == goal) {
+                            return true;
+                        }
+                        smallCount = (smallCount -1);
+                        sum -= smallCount;
+                            if(sum == goal){
+                                return true;
+                            }
+        }
+
+           return false;
+    }
