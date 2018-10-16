@@ -58,7 +58,7 @@ public class FlourPacker {
         smallCount *= 1;
         int sum = 0;
         
-        if ((bigCount < 0) || (smallCount < 0) || (goal < 0)){
+        if (((bigCount > goal) && (smallCount == 0)) || (bigCount < 0) || (smallCount < 0) || (goal < 0)){
             return false;
         }
         
