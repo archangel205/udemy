@@ -33,12 +33,6 @@ public class FlourPacker {
                 }
             }
         }
-//        else if((bigCount + smallCount) > goal){
-//            int sum = 0;
-//            sum = bigCount + (smallCount / 5);
-//            if(sum == goal) {
-//                return true;
-//            }
             else if((bigCount + smallCount) > goal){
                      int sum = 0;
                     while (sum != goal){
@@ -53,8 +47,6 @@ public class FlourPacker {
                             }
                     }
             }
-
-//    }
            return false;
     }
 }
