@@ -12,44 +12,22 @@ public class FlourPacker {
 
     public static boolean canPack(int bigCount, int smallCount, int goal){
         bigCount *= 5;
-        smallCount *= 1;
+        int sum = bigCount + smallCount;
 
-        if((bigCount < 0) || (smallCount < 0) || (goal < 0)){
+        if((goal < 0) || (sum < goal) || (goal - bigCount > smallCount)){
             return false;
         }
-        else if((bigCount + smallCount) == goal){
+
+       if((sum == goal) || (goal % 5 <= smallCount)){
             return true;
         }
-        else if ((bigCount > 0) && (smallCount == 0)) {
+        else {
             return false;
         }
-        else if ((bigCount == 0) && (smallCount > goal)) {
-            int sum = 0;
-            while (smallCount != 0) {
-                smallCount -= 1;
-                sum += 1;
-                if (sum == goal) {
-                    return true;
-                }
-            }
-        }
-            else if((bigCount + smallCount) > goal){
-                     int sum = 0;
-                    while (sum != goal){
-                         sum = (bigCount - 5) + smallCount;
-                        if (sum == goal) {
-                            return true;
-                        }
-                        smallCount = (smallCount -1);
-                        sum -= smallCount;
-                            if(sum == goal){
-                                return true;
-                            }
-                    }
-            }
-           return false;
     }
 }
+
+
 
 // altered code states takes to long to execute
 
