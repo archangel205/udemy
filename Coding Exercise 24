@@ -1,0 +1,31 @@
+public class LargestPrime {
+
+    public static void main(String[] args) {
+
+        System.out.println(getLargestPrime(21));
+        System.out.println(getLargestPrime(217));
+        System.out.println(getLargestPrime(0));
+        System.out.println(getLargestPrime(45));
+        System.out.println(getLargestPrime(7));
+
+    }
+
+    public static int getLargestPrime(int number){
+        if((number <=1)){
+            return -1;
+        }
+        int prime = 0;
+
+        if((number % 1 == number) || (number % number == 0)){
+
+            for(int i = 2; i <= number; i++){
+                while(number % i ==0){
+                        prime = i;
+                        number = number / i;
+                }
+            }
+            return prime;
+        }
+        else return -1;
+    }
+}
