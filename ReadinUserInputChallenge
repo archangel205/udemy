@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // my version
+//        Scanner scanner = new Scanner(System.in);
+//
+//        int counter = 1;
+//        int numberEntered;
+//        int sum = 0;
+//
+//        while (counter <= 10) {
+//
+//            System.out.println("Enter # " + counter + ":");
+//            boolean hasNextInt = scanner.hasNextInt();
+//
+//
+//            if(hasNextInt){
+//                numberEntered = scanner.nextInt();
+//                sum += numberEntered;
+//
+//            } else{
+//                System.out.println("Invalid Number.");
+//                counter--;
+//            }
+//
+//            scanner.nextLine(); // handle next line (enter key)
+//            counter++;
+//        }
+//
+//        System.out.println(sum);
+//        scanner.close();
+//    }
+
+        //version
+        Scanner scanner = new Scanner(System.in);
+
+        int counter = 0;
+        int sum = 0;
+
+        // or could of done while counter < 10
+        // while(counter < 10{   then can comment
+        // out the break statement. and can take out if statement with break.
+        while (true){
+            int order = counter + 1;
+            System.out.println("Enter number #" + order + ":");
+
+            boolean isAnInt = scanner.hasNextInt();
+
+            if(isAnInt){
+                int number = scanner.nextInt();
+                counter++;
+                sum += number;
+                if(counter == 10){
+                    break;
+                }
+            } else{
+                System.out.println("Invalid number.");
+            }
+
+            scanner.nextLine(); // handle end of line (Enter Key)
+        }
+        System.out.println("Sum = " + sum);
+        scanner.close();
+    }
+}
